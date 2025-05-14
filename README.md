@@ -7,6 +7,15 @@
 cp portalaltadefinicao.com.conf dev.portalaltadefinicao.com.conf
 sed -i "s/portalaltadefinicao.com/dev.portalaltadefinicao.com/g" dev.portalaltadefinicao.com.conf
 ```
+Não esqueça de ajustar as seguintes linhas do dev.portalaltadefinicao.com.conf:
+
+root  /var/www/dev.portalaltadefinicao; # Essa linha define o diretório onde está o Wordpress do domínio
+
+# Comentar as duas linhas do certificado LetsEncrypt pois pertence ao domínio principal do arquivo que copiamos, você instalar o certificado do ambiente dev posteriormente.
+ssl_certificate /etc/letsencrypt/live/www.homologacao.portalaltadefinicao.com/fullchain.pem; # managed by Certbot
+ssl_certificate_key /etc/letsencrypt/live/www.homologacao.portalaltadefinicao.com/privkey.pem; # managed by Certbot
+
+Verifique se existe alguma regra no Nginx que possa redirecionar para o site principal, caso tenha, comente ou apague ela.
 
 ## 2. Copiar os arquivos do WordPress
 ```bash
