@@ -75,10 +75,15 @@ define('WP_SITEURL', 'https://dev.dominio.com');
 
 ## 8. Atualizar a zona DNS
 
-Adicione o seguinte registro A na sua zona DNS:
+Adicione os seguintes apontamentos na sua zona DNS para que o subdomínio funcione corretamente:
 ```
-dev.dominio.com. 900 A 190.89.238.155
+# Registro A para o subdomínio principal
+dev.dominio.com.      900     IN      A       192.0.2.123
+
+# Registro CNAME para o www.dev.dominio.com apontando para o principal
+www.dev.dominio.com.  900     IN      CNAME   dev.dominio.com.
 ```
+💡 O IP 192.0.2.123 é apenas um exemplo. Substitua pelo IP público do seu servidor. A adição do CNAME é útil caso deseje que a versão com "www" também funcione corretamente.
 
 ## 9. Gerar certificado SSL com Certbot
 ```bash
