@@ -11,7 +11,7 @@ Não esqueça de ajustar as seguintes linhas do dev.dominio.com.conf:
 
 root  /var/www/dev.portalaltadefinicao; # Essa linha define o diretório onde está o Wordpress do domínio
 
-# Comentar as duas linhas do certificado LetsEncrypt pois pertence ao domínio principal do arquivo que copiamos, você instalar o certificado do ambiente dev posteriormente.
+### Comentar as duas linhas do certificado LetsEncrypt pois pertence ao domínio principal do arquivo que copiamos, você instalar o certificado do ambiente dev posteriormente.
 ssl_certificate /etc/letsencrypt/live/www.homologacao.dominio.com/fullchain.pem; # managed by Certbot
 ssl_certificate_key /etc/letsencrypt/live/www.homologacao.dominio.com/privkey.pem; # managed by Certbot
 
